@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var obj = {
+				Fun() {
+					console.log(this); 
+					// 方法里的函数:指向 Window。那么还是Window在调用它。
+					(function() {console.log("innerFun", this)})() // 指向Window
+					function innerFun2() {
+						console.log("innerFun2", this)  // 指向Window
+					}
+					innerFun2()
+				},
+				arrowFun:() => {
+					console.log(this)
+				}
+			}
+			
+			// 对象调用方法
+			// 调用普通函数：指向调用它的对象
+			obj.Fun()
+			// 调用箭头函数：指向Window
+			obj.arrowFun()
+			
+			
+			
+			console.log(window.obj)
+			
+			
+			
+		</script>
+	</body>
+</html>

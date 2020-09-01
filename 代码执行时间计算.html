@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+		<script type="text/javascript">
+			console.time('ok');
+			let num = 0
+			for(let i = 0; i < 1000000; i++) {
+				let text = document.querySelector("#box");
+				num++;
+				text.innerHTML = num;
+			}
+			console.timeEnd('ok');
+		</script>
+	</body>
+</html>

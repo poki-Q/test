@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			input {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 50px;
+				height: 50px;
+				opacity: 0;
+			}
+			div {
+				position: relative;
+				height: 50px;
+				width: 500px;
+				/* background-color: aquamarine; */
+			}
+			p {
+				display: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				/* background-color: gray; */
+			}
+			input + p{
+				background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1591898888975&di=9ae190d5fde17cf143c46d3203fd8832&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F01%2F53%2F48%2F775746d807f378e.jpg);
+				background-position: left center;
+				background-size: 50px 50px;
+				background-repeat: no-repeat;
+			}
+			input:checked + p {
+				background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1591899137191&di=b47abc08a65af4bc98d8b0b32a460248&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F01%2F53%2F47%2F945746d78876720.jpg);
+				background-position: left center;
+				background-size: 50px 50px;
+				background-repeat: no-repeat;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<div>
+			<input onclick = "console.log(123)" type="checkbox" />
+			<p></p>
+		</div>
+		<script type="text/javascript">
+			
+		</script>
+	</body>
+</html>

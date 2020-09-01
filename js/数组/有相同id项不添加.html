@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr1 = [{
+				id:1,
+				name:'张良'
+			},{
+				id:2,
+				name:'韩非'
+			},{
+				id:3,
+				name:'刘邦'
+			}]
+			
+			var arr2 = [{
+				id:1,
+				name:'张良'
+			},{
+				id:2,
+				name:'韩非'
+			}]
+			
+			// 目的：把arr1中与arr2不重复的项添加到arr2中，不重复：以id不一样做判断
+			// 遍历arr1的每一个元素
+			arr1.forEach(item => {
+				// 判断当前元素的id属性是否存在arr2中
+				var isExist = arr2.some(item2 => item2.id == item.id)
+				// 不存在就添加到arr2中
+				if(!isExist) {
+					arr2.push(item)
+				}
+			})
+			console.log(arr2)
+			// var tt = arr2.some(item => item.id == 4 )
+			// console.log("tttttt", tt)
+		</script>
+	</body>
+</html>

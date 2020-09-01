@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			let User = {
+				count:60,
+				getCount: function() {
+					return this.count
+				}
+			}
+			
+			let res1 = User.getCount() 
+			console.log(res1) // 60  解析：getCount方法（函数）的调用者是 User 对象，
+			// 所以 getCount 函数内部的 this 指向指向 User,User对象有count属性返回60。
+			
+			let fun = User.getCount
+			let res2 = fun();
+			console.log(res2) // undefined 解析：全局下调用函数指向 Window,Window下没有count属性。
+			
+			
+			
+		</script>
+	</body>
+</html>

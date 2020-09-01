@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* IE7及以下都不支持伪元素 */
+			
+			/* IE8不支持 */
+			/* IE9及以上都支持 */
+			#box1::after {
+				content: "伪";
+			}
+			
+			/* 旧的伪元素写法，CSS1就有了，现在还支持这种写法 */
+			#box2:after {
+				content: "元素";
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box1">
+			
+		</div>
+		<div id="box2">
+			
+		</div>
+	</body>
+</html>

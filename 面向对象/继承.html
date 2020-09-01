@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Persion() {
+				this.name = "张良";
+			}
+			
+			let p1 = new Persion();
+			console.log(p1.constructor);
+			console.log(Persion);
+			console.log(p1.constructor === Persion); // true
+			console.log(typeof Persion);  // function
+			let arr = [];
+			console.log(typeof arr); // object
+			
+		</script>
+	</body>
+</html>

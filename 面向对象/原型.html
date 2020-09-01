@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			/*
+				JavaScript 通过构造函数生成新对象，因此构造函数可以视为对象的模板。
+				实例对象的属性和方法，可以定义在构造函数内部。
+			*/
+			/*	
+				构造函数：用来实例化对象的函数叫做构造函数。即：构造对象用。 function Persion() {}
+				 
+				原型（prototype）：构造函数的一个属性，构造函数默认有的一个对象属性。
+				实例化对象后它就是实例对象的原型。
+				
+				__proto__ : 对象上默认有的一个属性，指向它的原型（prototype）。
+		
+			*/
+		   // 注：__proto__ 前后各两个下划线
+			
+			// instanceof判断是否是实例对象  返回true  false
+			
+			// super，指向当前对象的原型对象。
+			
+			
+			
+			// 构造函数
+			function Persion() {
+				this.name = "张良";
+			}
+			// 构造函数的原型
+			Persion.prototype.say = function(content) {
+				console.log(content);
+			}
+			
+			Persion.prototype.age = 22;
+			
+			let p = new Persion();
+			let p2 = new Persion();
+			
+			p.say("get it all"+ p.name);
+			p2.say("don`t do it" + p2.name);
+			
+			// 对象的__proto__指向它的构造函数的原型（prototype）
+			p2.__proto__.say(123);
+			console.log(p2.__proto__.age);
+				
+			</script>
+	</body>
+</html>

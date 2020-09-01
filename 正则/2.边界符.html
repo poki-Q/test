@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 边界符：
+			
+			// 1. ^ : 限定开头
+			var regExp1 = /^abc/  // 是否是以'abc'开头; 或者是另一种说法，以‘a’ 开头，后面接着必须是“bc”。
+			
+			var res1 = null
+			res1 = regExp1.test("abc") // true
+			res1 = regExp1.test("abc111") // true
+			regExp1.test("111abc") // false
+			// 假设以a开头就会返回true
+			res1 = regExp1.test("ab") // false 上一个假设不成立 
+			// 假设以a开头，只要存在abc就返回true
+			res1 = regExp1.test("aabc") // false 上一个假设不成立
+			console.log("res1:", res1)
+			
+			// 2. $ : 限定结尾
+			var regExp2 = /abc$/  // 以'abc'结尾; 或者是另一种说法，以‘c’结尾，c前面必须是“ab”
+			var res2 = null
+			res2 = regExp2.test("abc")  // true
+			res2 = regExp2.test("111abc")  // true
+			res2 = regExp2.test("abc111")  // false
+			// 假设以c结尾就会返回true
+			res2 = regExp2.test("c")  // false 上一个假设不成立 
+			// 假设以c结尾，只要存在abc就返回true
+			res2 = regExp2.test("abcc") // false 上一个假设不成立
+			console.log("res2:", res2)
+			
+			// test1
+			var regExp3 = /^\d/  // 以数字开头的变量或常量
+			var res3 = null
+			res3 = regExp3.test("1string")  // true
+			res3 = regExp3.test("string")  // false
+			console.log("res3:", res3)
+			
+			// test2
+			var regExp4 = /^\d$/ // 只能是数字， 且只能出一次
+			
+			var res4 = null
+			res4 = regExp4.test("1") // true
+			res4 = regExp4.test("1string1") // false  假设以数字开头和结尾返回true
+			res4 = regExp4.test("1string") // false  假设以数字开头返回true
+			res4 = regExp4.test("11") // false  假设只要以数字组成就返回true
+			
+			console.log("res4:", res4)
+			
+			// test3
+			var regExp5 = /^\d*$/  // 以数字开头和结尾，只能出现数字，且可以出现0-无穷次,
+			  // 另一种说法：只能是数字，可以为空
+			
+			var res5 = null
+			res5 = regExp5.test("")  // true  // 返回true说明*（限定符）的优先级比^、&（边界符的优先级高）
+			res5 = regExp5.test("1")  // true
+			res5 = regExp5.test("1a") // false
+			res5 = regExp5.test("a1") // false
+			console.log("res5:", res5) 
+			
+			// test5: 长度为1-4的数字
+			//var regExp6 = /^\d{1,4}$/ // 以数字开头和结尾，只能出现数字，且只可以出现1-4次， 即：长度为1-4的数字  
+			var regExp6 = /^[0-9]{1,4}$/ // 以0-9开头和结尾，全部都由0-9中的数字组成，只能出现1-4次，即：长度为1-4的数字
+			var res6 = null
+			res6 = regExp6.test("1")  // true
+			res6 = regExp6.test("1234")  // true
+			res6 = regExp6.test("12345")  // false
+			res6 = regExp6.test("1a")  // false
+			console.log("res6", res6)
+			
+			
+			
+
+			
+			
+			
+		</script>
+	</body>
+</html>

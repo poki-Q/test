@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			 var fn1 = (function(){  
+			    console.log("自执行函数1");
+				return "自执行函数1";
+			  }());
+			  console.log(fn1); // 能够接受返回值
+			  
+			  // "=" 号
+			  var fn2 = function() { 
+				  console.log("自执行函数2") 
+				  return "自执行函数2";
+			  }();
+			  console.log(fn2); // 能够接受返回值
+			  
+			  // function() { console.log("自执行函数3");} () 不执行
+			  
+			  var fn3 = ! function() { 
+				  console.log("自执行函数3");
+				  // return 0; // fn3 为true
+				  return 1;  // fn3为false
+			  } ();
+			  console.log(fn3); // 返回布尔值，与返回的值相反
+		</script>
+	</body>
+</html>

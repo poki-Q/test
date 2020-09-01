@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 水平垂居中直靠右
+				1. 水平垂直居中： margin-top:50%; transform: translateY(-50%);
+				2. 靠右：用定位
+					
+				
+			 */
+			.a {
+				width: 400px;
+				height: 400px;
+				background-color: gray;
+				overflow: hidden; /* 激活BFC */
+				position: relative;
+			}
+			.b {
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+				margin-top: 50%;
+				transform: translateY(-50%);
+				/* position: absolute;
+				right: 0; */
+				float: right;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="a">
+			<div class="b">
+				
+			</div>
+		</div>
+	</body>
+</html>

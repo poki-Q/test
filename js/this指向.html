@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button type="button" id="btn">点击</button>
+		<button type="button" id="btn2">点击2</button>
+		<script>
+			// script标签：指向Window。在任何一对script标签里它的作用域都是全局的
+			console.log("script", this) // this => Window
+			// this.__proto__ => Window
+			// this.__proto__.constructor => Window()
+			
+			function fn() {
+				console.log("script下的函数", this)
+			}
+			fn();
+			
+			(function() {
+				console.log("自执行函数", this)
+			})()
+			
+			arrowFun = () => {
+				console.log("箭头函数", this)
+			}
+			arrowFun();
+			
+			
+			// 元素绑定两个相同事件只会执行后面绑定的那一个
+			// btn2.onclick = function() {
+			// 	console.log("事件触发普通函数", this)
+			// }
+			
+			// 指向绑定事件的元素
+			btn.onclick = function() {
+				console.log("事件触发普通函数", this)
+				this.style.width = "60px"
+			}
+			
+			// 指向Window
+			btn2.onclick = () => {
+				console.log("事件触发箭头函数：", this)
+			}
+			
+			function arrowInFun() {
+				let f = () => console.log(this)
+			}
+			arrowInFun();
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

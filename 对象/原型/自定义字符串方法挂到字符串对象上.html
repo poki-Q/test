@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 自定义一个字符串方法，实现重复合并num次
+			String.prototype.reapy = function(num) {
+				let result = ""
+				for(var i = 0; i < num; i++) {
+					result += this // 即调用方法的字符串
+				}
+				return result
+			}
+			
+			let res = "hello".reapy(3)
+			console.log(res) // hellohellohello
+		</script>
+	</body>
+</html>

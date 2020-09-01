@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			宏任务：
+			script(整体代码)
+			setTimeout
+			setInterval
+			I/O
+			UI交互事件
+			postMessage
+			MessageChannel
+			setImmediate(Node.js 环境)
+			
+			微任务：
+			Promise.then
+			Object.observe
+			MutaionObserver
+			process.nextTick(Node.js 环境)
+			
+			 */
+			
+			console.log("start") // 1
+			new Promise(resolve => {
+				resolve("在定时器之外的Promise1");
+			}).then(res => {
+				console.log(res)
+			})
+			setTimeout(() => { // 4
+				console.log("setTimeout1-1")
+				new Promise(resolve => {
+					resolve("微任务：promise1")
+				}).then(res => {
+					console.log(res)
+				}).then(() => {
+					console.log("微任务：promise2")
+				})
+				console.log("setTimeout1-2")
+			}, 1000) // 定时器为零仍然最后再执行setTimeout因为它是异步任务，会被放到事件队列里面
+			// 执行栈里面的任务被执行完后才会检查事件队列里面是够有任务，有的话取一条出来放到执行栈中执行
+			
+			setTimeout(() => { // 3
+				console.log("setTimeout2-1")
+				new Promise(resolve => {
+					resolve("微任务：promise1")
+				}).then(res => {
+					console.log(res)
+				}).then(() => {
+					console.log("微任务：promise2")
+				})
+				console.log("setTimeout2-2")
+			}, 0)
+			
+			new Promise(resolve => {
+				resolve("在定时器之外的Promise2");
+			}).then(res => {
+				console.log(res)
+			})
+			console.log("end") // 2
+		</script>
+	</body>
+</html>

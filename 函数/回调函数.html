@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 自执行函数
+			(function(callBack) {
+				console.log("start");
+				setTimeout(() => {
+					callBack();
+				})
+				console.log("end")
+			})(callBack);
+			
+			function callBack() {
+				console.log("callback");
+			} 
+		</script>
+	</body>
+</html>

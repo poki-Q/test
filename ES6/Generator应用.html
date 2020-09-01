@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			// Generator的应用
+			// 1. 处理异步操作
+			
+			// 异步请求
+			function getData() {
+				let result = null
+				fetch("./data.json").then(res => res.json()).then(res => {
+					result = res
+				})
+				return result
+			}
+			
+			// 生成器
+			function * gen() {
+				console.log("start")
+				yield getData();
+				console.log("end")
+			}
+			
+			// 执行生成器函数，返回状态指针
+			let gPoiter = gen()
+			
+			let res = gPoiter.next() // 执行
+			console.log(res)
+			
+			
+		</script>
+	</body>
+</html>

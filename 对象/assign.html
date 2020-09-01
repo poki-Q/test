@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let obj = {id:123, name:"阿发达是"}
+			let res = Object.assign({id:12}, obj)
+			
+			let obj2 = {sex:"男"}
+			let res2 =  Object.assign(obj, obj2)
+			
+			let obj3 = {
+				id:1,
+				name:"张良",
+				skill: ["谋略"]
+			}
+			let obj4 = {}
+			let res3 = Object.assign(obj4, obj3)
+			console.log(obj3.skill == obj4.skill) // true 说明没有进行深拷贝，只是赋值了地址
+			
+			let obj5 = Object.assign(5)
+			console.log("obj5", obj5)
+			
+			// 第一个参数为目标对象，后面的参数都是源对象（后面的参数可以是一个或多个）
+			let obj6 = Object.assign({}, {a:1, b:1}, {b:2})  
+			console.log("obj6:", obj6) // {a: 1, b: 2}
+			
+			let obj7 = Object.assign({}, {a:1, b:1}, {b:2, d:2}, {d:3})
+			console.log("obj7:", obj7) // {a: 1, b: 2, d: 3}
+			
+		</script>
+	</body>
+</html>

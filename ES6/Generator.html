@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			// 什么是生成器函数？：形式上生成器函数是一个普通函数
+			// *:  代表这是一个生成器函数
+			// 
+			// 执行：
+			// 	 函数执行：函数名后加上圆括号；
+			// 	 返回值：返回一个指向内部状态的指针对象（即：遍历器对象Interator）
+			// 	 next执行：指针对.next(),调用遍历器的next()方法执行函数里面的状态；
+			//             初始执行第一个，每执行一次指针移向下一个状态；
+			// 			   执行区间：  前 yiled 表达式；后，next() 执行：“前”、“表达式”
+			// 	 返回值： {value:yield后面表达式的值，done：布尔值表示遍历是否结束,遇到return 时返回true}		
+			// yield: yield表达式是暂停执行的标记，而next方法可以恢复执行。
+			//        yield表达式后面的表达式，只有当调用next方法、内部指针指向该语句时才会执行.
+			//  yield与return的区别： yield 具备记忆功能、yield在函数中可以执行多次、
+			function *helloWorldGenerator(){
+				console.log("start")
+				yield "hello"
+				yield "world" // 对象指针指向这里的时候只执行yield后面的表达式,不会执行表达后面的代码
+				// 当移向下一个yield的时候会执行上一个yield的下面所有语句以及当前yield后面的语句。
+				console.log("end") // 指向 return "end" 时执行
+				return "end"
+			}
+			
+			let hwg = helloWorldGenerator()
+			console.log(hwg)
+			
+			console.log(hwg.next())
+			// {value: "hello", done: false}
+			
+			console.log(hwg.next())
+			// {value: "world", done: false}
+			
+			console.log(hwg.next()) 
+			// {value: "end", done: true}
+			
+			
+			// generator 生成器  /ˈdʒenəreɪtə(r)/ 
+			// yield  产出  英 /jiːld/ 
+		</script>
+	</body>
+</html>

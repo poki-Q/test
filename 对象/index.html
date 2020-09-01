@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			const obj = {
+				name: "华为",
+				price: "4599"
+			}
+			console.log(obj.price); // 4599
+			delete obj.price // 删除指定属性，不报错，const只控制obj的引用，引用不变
+			// 修改不会报错
+			console.log(obj.price); // undefined
+			
+			// obj = { // 报错，const定义的常量不可修改
+			// 	name: "华为",
+			// }
+			
+			var arr = [1,2];
+			console.log(arr);
+			delete arr[0]; // 删除数组
+			console.log(arr);
+			arr.forEach((item, index) => console.log(index))
+			
+			var str = "123";
+			console.log("pre", str); // 123
+			delete str; // 删除不了基本数据类型
+			console.log("now:",str); // 123
+			
+			var bool = false;
+			console.log("pre", bool); // false
+			delete str; // 删除不了基本数据类型
+			console.log("now:",bool); // false
+			
+			//  深拷贝 deepCopy
+				// 1. JSON.parse(JSON.stringify(obj))
+				// 2. 递归
+				// 3. 第三方工具
+					// jQuery.clone(true)
+					// lodash  由underscore而来
+					// underscore
+					
+			// 深拷贝意味着内存中会多出一份数据
+			// redux中reducer传入的数据不能修改
+			// 一般做法是深拷贝一份，如果遇到比较复杂的redux数据这是不可取的
+			// 这时就要提到不可变数据 Immutabel Data  
+			// 一旦创建就不能再被更改
+			
+			// Immutabel.js facebook工程师打造
+			// 采用数据结构共享的方法来实现
+			// 深拷贝：所有的引用都改变
+			// 数据结构共享：只对改变的部分进行深拷贝
+			
+			// immutabel.fromJS
+			// 转变js数据格式为immutable数据
+			// fromJS 递归的方式 所有的都变
+			// var imgList = List[1, 2, List[1, 2, 3]]  // 只变一层
+			// var dataMap = Map{id:1, Map:{id:1,name:"adf"}}
+			
+			// 获取 dataMap.get("id").get(0)
+			//dataMap.getIn(["id", "name"])  // 不存在的话不会报undefined的0错
+				
+			// immutable判断它们的键和属性值是否都相同
+			var imObj1 = Map(obj1);
+			var imObj2 = Map(obj2);
+			console.log(Immutable.is(imObj1, imObj2));
+			
+			// 合并
+			// js 
+			Object.assign(obj1, obj2); // 相同属性后面的覆盖前面的  只能做一层和合并
+			
+			// immutable 
+			// merge() 相当于Object.assgin()
+			// mergeDeep() 深层合并
+			
+			// 浅拷贝 shallowCopy  
+			// 遍历
+			// Object.assign()
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

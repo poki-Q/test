@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+		// var str = "nininihaoa";
+		// var o = {};
+		
+		// // 	var a = 1, b=2
+		// for (var i = 0, length = str.length; i < length; i++) {
+		// 	var char = str.charAt(i);
+		// 	if (o[char]) { // 对象的属性为变量时用中括号
+		// 		o[char]++; //次数加1
+		// 	} else {
+		// 		o[char] = 1; //若第一次出现，次数记为1
+		// 	}
+		// }
+		// console.log(o); //输出的是完整的对象，记录着每一个字符及其出现的次数
+		// //遍历对象，找到出现次数最多的字符的次数
+		// var max = 0;
+		// for (var key in o) {
+		// 	if (max < o[key]) {
+		// 		max = o[key]; //max始终储存次数最大的那个
+		// 	}
+		// }
+		
+		// for (var key in o) {
+		// 	if (o[key] == max) {
+		// 		//console.log(key);
+		// 		console.log("最多的字符是" + key);
+		// 		console.log("出现的次数是" + max);
+		// 	}
+		// } 
+		
+		var str = "oopppddd"
+		
+		let strTimesObj = {}
+		// 计算出现过的字符的次数
+		for(var i = 0, length = str.length; i < length; i++) {
+			let currChar = str.charAt(i)
+			if(strTimesObj[currChar]) { // 已经出现过，那么次数加一
+				strTimesObj[currChar]++
+			} else { // 第一次出现
+				strTimesObj[currChar] = 1
+			}
+		}
+		
+		// 找出出现的最大数
+		let max = 0
+		for(var key in strTimesObj) {
+			if(strTimesObj[key] > max)
+			max = strTimesObj[key]
+		}
+		
+		console.log(max)
+		// 找出所有次数为最大的字符
+		for (var key in strTimesObj) {
+			if (strTimesObj[key] == max) {
+				//console.log(key);
+				console.log("最多的字符是" + key);
+				console.log("出现的次数是" + max);
+			}
+		} 
+		
+		console.log(strTimesObj)
+		
+		</script>
+	</body>
+</html>
